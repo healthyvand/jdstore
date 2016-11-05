@@ -67,6 +67,19 @@ Rails.application.routes.draw do
     end
   end
   
-  root 'products#index'
 
+
+  # 原来
+  # root 'products#index'
+
+  # 费奔版本
+  resources :feiben_displays do
+    collection do
+      get :standard_size10
+      get :standard_size20
+      # get :customization
+    end
+  end
+
+  root 'feiben_displays#index'
 end

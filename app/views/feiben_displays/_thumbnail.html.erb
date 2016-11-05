@@ -1,0 +1,33 @@
+<div class="row">
+  <% @products.each do |product| %>
+  <% if !product.is_hidden %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+      <!-- 产品名 -->
+      <h4 align="center"><%= product.title %></h4> 
+
+      <a href="<%= product_path(product) %>">
+
+        <!-- 显示图判断 -->
+        <% if no_pic?(product) %>
+        
+        <%= image_tag(product.image.default_url, class: "thumbnail") %>
+          <!-- <img src="/nopic.png" alt="no picture" class="img-responsive"> -->
+        <% else %>
+          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+        <% end %>
+
+
+      </a>
+        
+        <div class="caption">
+          <h2 align="center">$ <%= product.price %>.000</h2>
+
+          
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

@@ -15,4 +15,14 @@
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require bootstrap/carousel
+//= require bootstrap/transition
 //= require_tree .
+
+
+$('.carousel').carousel({
+  interval: 10
+})
+
+
+

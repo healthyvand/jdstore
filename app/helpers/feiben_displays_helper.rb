@@ -1,0 +1,2 @@
+module FeibenDisplaysHelper
+end

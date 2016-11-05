@@ -11,6 +11,11 @@
 #  updated_at  :datetime         not null
 #  image       :string
 #  is_hidden   :boolean          default(FALSE)
+#  feet        :string
+#
+# Indexes
+#
+#  index_products_on_feet  (feet)
 #
 
 require 'test_helper'

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+  # layout "show_display"
   before_action :authenticate_user! , only: [:order]
   # 管理员自动跳转
   # before_action :admin_redirect
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
     # end
     @products = Product.all
   end
+
 
 
 
@@ -105,6 +107,11 @@ class ProductsController < ApplicationController
 
 
   end
+
+
+
+
+
 
 
   private
