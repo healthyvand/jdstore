@@ -12,6 +12,7 @@
 #  image       :string
 #  is_hidden   :boolean          default(FALSE)
 #  feet        :string
+#  attachpdf   :string
 #
 # Indexes
 #

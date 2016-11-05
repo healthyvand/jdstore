@@ -7,64 +7,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+
     <title>FeiBen Display</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- 加载holder -->
+    <script src='http://cdn.rawgit.com/imsky/holder/master/holder.js'></script>
 
   </head>
 
   <body>
 
-  <!-- 整体 -->
-<!--     <div class="container">
-  
-
-      <div class="masthead">
-        <h3 class="text-muted">Feiben Display</h3>
-        <ul class="nav nav-justified">
-          <li class="active"><a href="#">About Us</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-    </div> -->
-
-      <!-- Jumbotron -->
-      <!-- <div class="jumbotron"> -->
-
-
-        <!-- 纵向导航 -->
-
-    <!-- <div class="container"> -->
-<%= render "common/navbar_feiben_display" %>
-<%= render "common/flashes" %>
-  <%= yield %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- Site footer -->
-<!--       <div class="footer">
-        <p>&copy; Company 2014</p>
-      </div> -->
-      <%#= render "common/navbar" %>
-      
-
-<%= render "common/footer" %>
+    <div class="container-fluid">
+      <%= render "common/navbar_feiben_display" %>
+      <%= render "common/flashes" %>
+      <%= yield %>
+      <%= render "common/footer" %>
+    </div>
   </body>
 </html>

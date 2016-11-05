@@ -43,6 +43,7 @@ gem "awesome_rails_console"
 gem 'fog'
 gem 'figaro'
 # gem 'mailgun_rails'
+# gem 'rails-assets-holderjs'
 
 gem 'mailgun-ruby', '~>1.1.1'
 
