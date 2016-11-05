@@ -5,9 +5,8 @@
     <%= f.input :image, label: '图片'%>
 
         <!-- 显示图判断 -->
-        <% if no_pic?(@product) %>
-          <img src="/nopic.png" alt="no picture" class="img-responsive">
-        <% else %>
+        <% if !no_pic?(@product) %>
+
         <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
           <!-- <img src="<#%= @product.image %>" alt="<#%= @product.title %>" class="img-responsive"> -->
         <% end %>
@@ -15,6 +14,22 @@
 
     <%= f.input :quantity, label: '库存',input_html: { class: "form-control"} %>
     <%= f.input :price, label: '价格',input_html: { class: "form-control"} %>
+    <%#= f.input :feet, label: '规格',as: :radio_buttons,input_html: { class: "form-control"} %>
+    <%#= f.collection_radio_buttons :feet, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+
+    <%#= f.input :feet, :label => "Lead or VTeam", :collection => ["lead","vteam"], :selected => "lead" %>
+
+    <%= f.input :feet, label: '规格', collection: [["10'x10'", "10'x10'"], ["20'x20'", "20'x20'"],["customization", "customization"]],:selected => "10'x10'"%>
+<!--     <select class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select> -->
+
+
+
 
 </div>
 <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>

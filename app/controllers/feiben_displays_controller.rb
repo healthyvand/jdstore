@@ -12,16 +12,22 @@ class FeibenDisplaysController < ApplicationController
   
 
   def standard_size10
-    @products = Product.all   
+    @products = Product.where(feet: "10'x10'")   
   end
 
   def standard_size20
-    @products = Product.all   
+    @products = Product.where(feet: "20'x20'")
   end
 
   def customization
-    @products = Product.all   
+    @products = Product.where(feet: "customization")  
   end
+
+  # 物品展示
+  def show
+    @product = Product.find(params[:id])
+  end
+
 
 
 end

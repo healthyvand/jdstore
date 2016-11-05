@@ -77,7 +77,7 @@ Rails.application.routes.draw do
     collection do
       get :standard_size10
       get :standard_size20
-      # get :customization
+      get :customization
     end
   end
 
