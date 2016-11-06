@@ -20,10 +20,12 @@
 #
 
 class Product < ApplicationRecord
+  has_many :photos
+  accepts_nested_attributes_for :photos
     
-    mount_uploader :image,  ImageUploader
-    # 添加上传pdf设置
-    mount_uploader :attachpdf, AttachpdfUploader
-    
-    validates :title,:quantity,:price,presence: true
+  mount_uploader :image,  ImageUploader
+  # 添加上传pdf设置
+  mount_uploader :attachpdf, AttachpdfUploader
+  
+  validates :title,:quantity,:price,presence: true
 end

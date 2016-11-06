@@ -26,6 +26,7 @@ class FeibenDisplaysController < ApplicationController
   # 物品展示
   def show
     @product = Product.find(params[:id])
+    @photos = @product.photos.all
   end
 
 

@@ -27,34 +27,45 @@
 
             <!-- 显示图判断 -->
             <% if no_pic?(@product) %>
-              <img src="/nopic.png" alt="no picture" class="img-responsive">
+              <% image_tag("http://placehold.it/400x400&text=No Pic",class: "img-responsive")%>
             <% else %>
               <img src="<%= @product.image %>" alt="<%= @product.title %>" class="img-responsive">
             <% end %>
+    <!-- <img src="<%#= @product.photos.first.avatar_url %>" alt="<%= @product.title %>" class="img-responsive"> -->
+
+
+
+
 
       </div>
       <!-- 控制框 -->
       <div class="col-md-4">
+      <% if @photos.present? %>
+      <!-- 角度A -->
         <div class="row">
           <div class="col-md-8">
-            <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/>
+          <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
+            <!-- <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/> -->
           </div>
         </div>
         <br>
-
+      <!-- 角度B -->
         <div class="row">
           <div class="col-md-8">
-            <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/>
+          <%= image_tag(@product.photos.first.avatar.thumb.url, class: "thumbnail") %>
+            <!-- <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/> -->
           </div>
         </div>
         <br>
-
+      <!-- 角度C -->
         <div class="row">
           <div class="col-md-8">
-            <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/>
+          <%= image_tag(@product.photos.second.avatar.thumb.url, class: "thumbnail") %>
+            <!-- <img src="https://ooo.0o0.ooo/2016/11/05/581dcfd93a00c.jpg" alt="too_busy_to_improve .jpg" title="too_busy_to_improve .jpg" class="img-thumbnail"/> -->
           </div>
         </div>
         <br>
+        <% end %>
 
         <!-- 价格 -->
         <h1>$ <%= @product.price %>.000</h1>

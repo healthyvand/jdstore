@@ -13,6 +13,14 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+
+      # 传多张图
+      if params[:photos] != nil
+        params[:photos]['avatar'].each do |a|
+          @photo = @product.photos.create(:avatar => a)
+        end
+      end
+
       redirect_to admin_products_path, notice: "新建成功"
     else
       render :new
@@ -21,6 +29,8 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    #for multi-pics
+    @photo = @product.photos.build
   end
 
   def edit
@@ -33,8 +43,19 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    # 上传多图的修改更新
+    if params[:photos] != nil
+      @product.photos.destroy_all #need to destroy old pics first
 
-    if @product.update(product_params)
+      params[:photos]['avatar'].each do |a|
+        @picture = @product.photos.create(:avatar => a)
+      end
+
+      @product.update(product_params)
+      redirect_to admin_products_path, notice: "更新成功"
+
+    
+    elsif @product.update(product_params)
       redirect_to admin_products_path,  notice: "更新成功"
     else
       render :edit
@@ -81,7 +102,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :image,:quantity, :price, :feet,:attachpdf)
+    params.require(:product).permit(:title, :description, :image,:quantity, :price, :feet,:attachpdf,:photos)
   end
 
   def admin_required

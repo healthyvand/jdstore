@@ -35,11 +35,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    puts '~~ before mail ~~'
-    
-
-
-    puts '~~ after mail ~~'
+    # @photos = @product.photos.first
   end
 
   # def update

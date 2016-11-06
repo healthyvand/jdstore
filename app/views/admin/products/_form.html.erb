@@ -2,14 +2,32 @@
 <div class="form-group">
     <%= f.input :title, label: '商品名',input_html: { class: "form-control"} %>
     <%= f.input :description, label: '描述',input_html: { class: "form-control"} %>
-    <%= f.input :image, label: '图片'%>
+    <%= f.input :image, label: '角度A',as: :file%>
 
-        <!-- 显示图判断 -->
-        <% if !no_pic?(@product) %>
+    <!-- 显示图判断A -->
+    <% if !no_pic?(@product) %>
+    <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
+    <% end %>
 
-        <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
-          <!-- <img src="<#%= @product.image %>" alt="<#%= @product.title %>" class="img-responsive"> -->
-        <% end %>
+    <br>
+    <label for="">角度B</label>
+    <%= f.file_field :avatar, label: '角度B',:multiple => true, name: "photos[avatar][]" %>
+    <br>
+    <!-- 显示图判断B -->
+    <% if @product.photos.first.present? %>
+    <h5>有图了</h5>
+    <%#= image_tag(@product.photos.first.avatar_url, class: "thumbnail") %>
+    <% end %>
+
+    <label for="">角度C</label>
+    <%= f.file_field :avatar, label: '角度C',:multiple => true, name: "photos[avatar][]" %>
+    <br>
+    <!-- 显示图判断C -->
+    <% if @product.photos.second.present? %>
+    <h5>有图了</h5>
+    <%= image_tag(@product.photos.second.avatar_url, class: "thumbnail") %>
+    <% end %>
+
 
 
     <%= f.input :quantity, label: '库存',input_html: { class: "form-control"} %>
@@ -34,5 +52,5 @@
 
 
 </div>
-<%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
+<%= f.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "提交..." } %>
 <% end %>
