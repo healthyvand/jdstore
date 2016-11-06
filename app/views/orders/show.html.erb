@@ -26,11 +26,49 @@
       </tbody>
     </table>
 
+
+
     <div class="total clearfix">
-      <span class="pull-right">
-        总计 <%= @order.total %> CNY
+      <span class="pull-left">
+        <h4>
+          总计:
+        </h4>
+        <h1><%= @order.total %> CNY
+        </h1>   
       </span>
     </div>
+
+    <% if @order.coupon_code.blank? %>
+
+    <div class="total clearfix">
+      <span class="pull-left">
+      <%= simple_form_for @order ,url: coupon_order_path(@order.token) do |f| %>
+      <%= f.input :coupon_code, label: '优惠码',input_html: { class: "form-control"} %>
+
+      <%= f.submit "提交", class: "btn btn-primary btn-xs", data: { disable_with: "提交..."} %>
+
+      <% end %>
+      </span>
+
+    </div>
+    <% else %>
+  <!-- 判断折扣力度 -->
+      <% case @order.coupon_code %>
+      <% when 'fbd9' %>
+        <kbd>-10%</kbd>
+      <% when 'fbd8' %>
+        <kbd>-20%</kbd>
+      <% when 'fbd7' %>
+        <kbd>-30%</kbd>
+      <% when 'fbd6' %>
+        <kbd>-40%</kbd>
+      <% else %>
+        <kbd>-?%</kbd>
+      <% end %>
+
+
+
+    <% end %>
 
      <hr>
 

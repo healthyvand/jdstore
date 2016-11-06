@@ -83,6 +83,35 @@ class OrdersController < ApplicationController
     render 'orders/payfailed'
   end
 
+  def coupon
+    @order = Order.find_by_token(params[:id])
+    # 优惠码
+    code = coupon_params[:coupon_code]
+    @order.coupon_code = code
+    puts '~~'
+    puts code
+    puts '~~'
+    case code
+    when 'fbd9'
+
+      @order.total = @order.total * 0.9
+      @order.save
+    when 'fbd8'
+      @order.total = @order.total * 0.8
+      @order.save
+    when 'fbd7'
+      @order.total = @order.total * 0.7
+      @order.save
+    when 'fbd6'
+      @order.total = @order.total * 0.6
+      @order.save
+    else
+      return redirect_to :back , notice: "该优惠码不存在"
+    end
+
+    return redirect_to :back , notice: "优惠码使用成功"
+    
+  end
 
 
 
@@ -90,7 +119,12 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address)
+    params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address,:coupon_code)
+  end
+
+  def coupon_params
+    params.require(:order).permit(:coupon_code)
+    
   end
 
 

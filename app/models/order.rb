@@ -66,6 +66,7 @@ end
 #  is_paid          :boolean          default(FALSE)
 #  payment_method   :string
 #  aasm_state       :string           default("order_placed")
+#  coupon_code      :string
 #
 # Indexes
 #

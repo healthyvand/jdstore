@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       post :pay_with_wechat
       get :paysuccess
       get :payfailed
+      patch :coupon
     end
   end
 
