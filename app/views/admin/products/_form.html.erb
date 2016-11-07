@@ -1,9 +1,9 @@
 <%= simple_form_for [:admin, @product] do |f| %>
 <div class="form-group">
-    <%= f.input :title, label: '商品名',input_html: { class: "form-control"} %>
-    <%= f.input :description, label: '描述',input_html: { class: "form-control"} %>
-    <%= f.input :specification, label: '规格',input_html: { class: "form-control"} %>
-    <%= f.input :image, label: '角度A',as: :file%>
+    <%= f.input :title, label: 'Product name',input_html: { class: "form-control"} %>
+    <%= f.input :description, label: 'Description',input_html: { class: "form-control"} %>
+    <%= f.input :specification, label: 'Specification',input_html: { class: "form-control"} %>
+    <%= f.input :image, label: 'View A',as: :file%>
 
     <!-- 显示图判断A -->
     <% if !no_pic?(@product) %>
@@ -11,8 +11,8 @@
     <% end %>
 
     <br>
-    <label for="">角度B</label>
-    <%= f.file_field :avatar, label: '角度B',:multiple => true, name: "photos[avatar][]" %>
+    <label for="">View B</label>
+    <%= f.file_field :avatar, label: 'View B',:multiple => true, name: "photos[avatar][]" %>
     <br>
     <!-- 显示图判断B -->
     <% if @product.photos.first.present? %>
@@ -31,16 +31,16 @@
 
 
 
-    <%= f.input :quantity, label: '库存',input_html: { class: "form-control"} %>
-    <%= f.input :price, label: '价格',input_html: { class: "form-control"} %>
+    <%= f.input :quantity, label: 'Quantity',input_html: { class: "form-control"} %>
+    <%= f.input :price, label: 'Price',input_html: { class: "form-control"} %>
     <%#= f.input :feet, label: '规格',as: :radio_buttons,input_html: { class: "form-control"} %>
     <%#= f.collection_radio_buttons :feet, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
 
     <%#= f.input :feet, :label => "Lead or VTeam", :collection => ["lead","vteam"], :selected => "lead" %>
 
-    <%= f.input :feet, label: '规格', collection: [["10'x10'", "10'x10'"], ["20'x20'", "20'x20'"],["customization", "customization"]],:selected => "10'x10'"%>
+    <%= f.input :feet, label: 'Catalog', collection: [["10'x10'", "10'x10'"], ["10'x20'", "10'x20'"],["20'x20'", "20'x20'"],["customization", "customization"]],:selected => "10'x10'"%>
 
-    <%= f.input :attachpdf ,label: 'pdf附件'%>
+    <%= f.input :attachpdf ,label: 'PDF attachment'%>
 <!--     <select class="form-control">
       <option>1</option>
       <option>2</option>
@@ -53,5 +53,5 @@
 
 
 </div>
-<%= f.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "提交..." } %>
+<%= f.submit "Submit", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
 <% end %>

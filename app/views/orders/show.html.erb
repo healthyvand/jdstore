@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-12">
 
-    <h2> 订单明细 </h2>
+    <h2> Order Details </h2>
 
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th width="80%">商品明细</th>
-          <th>单价</th>
+          <th width="80%">Product Details</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
@@ -31,9 +31,9 @@
     <div class="total clearfix">
       <span class="pull-left">
         <h4>
-          总计:
+          Total:
         </h4>
-        <h1><%= @order.total %> CNY
+        <h1>$ <%= @order.total %> USD
         </h1>   
       </span>
     </div>
@@ -43,9 +43,9 @@
     <div class="total clearfix">
       <span class="pull-left">
       <%= simple_form_for @order ,url: coupon_order_path(@order.token) do |f| %>
-      <%= f.input :coupon_code, label: '优惠码',input_html: { class: "form-control"} %>
+      <%= f.input :coupon_code, label: 'Coupon Code',input_html: { class: "form-control"} %>
 
-      <%= f.submit "提交", class: "btn btn-primary btn-xs", data: { disable_with: "提交..."} %>
+      <%= f.submit "Submit", class: "btn btn-primary btn-xs", data: { disable_with: "Submit..."} %>
 
       <% end %>
       </span>
@@ -54,13 +54,13 @@
     <% else %>
   <!-- 判断折扣力度 -->
       <% case @order.coupon_code %>
-      <% when 'fbd9' %>
+      <% when 'FBD9' %>
         <kbd>-10%</kbd>
-      <% when 'fbd8' %>
+      <% when 'FBD8' %>
         <kbd>-20%</kbd>
-      <% when 'fbd7' %>
+      <% when 'FBD7' %>
         <kbd>-30%</kbd>
-      <% when 'fbd6' %>
+      <% when 'FBD6' %>
         <kbd>-40%</kbd>
       <% else %>
         <kbd>-?%</kbd>
@@ -72,13 +72,13 @@
 
      <hr>
 
-     <h2> 寄送资讯 </h2>
+     <h2> Shipping Information </h2>
 
      <table class="table table-striped table-bordered">
       <tbody>
         <tr>
           <td>
-            订购人
+            Buyer
           </td>
         </tr>
         <tr>
@@ -88,7 +88,7 @@
         </tr>
         <tr>
           <td>
-            收件人
+            Receiver
           </td>
         </tr>
         <tr>
@@ -98,30 +98,30 @@
         </tr>
       </tbody>
     </table>
-    <h5>订单状态</h5>
+    <h5>Order Status</h5>
     <h5>
       <% case @order.aasm_state %>
         <% when 'order_placed' %>
-          <i class="fa fa-gavel" aria-hidden="true"> 已下订 </i>
+          <i class="fa fa-gavel" aria-hidden="true"> Ordered </i>
         <% when 'paid' %>
-          <i class="fa fa-money" aria-hidden="true"> 已付款 </i>
+          <i class="fa fa-money" aria-hidden="true"> Paided </i>
         <% when 'shipping' %>
-          <i class="fa fa-trunk" aria-hidden="true"> 出货中 </i>
+          <i class="fa fa-trunk" aria-hidden="true"> Delivering </i>
         <% when 'shipped' %>
-          <i class="fa fa-square" aria-hidden="true"> 到货 </i>
+          <i class="fa fa-square" aria-hidden="true"> Shipped </i>
         <% when 'order_cancelled' %>
-          <i class="fa fa-close" aria-hidden="true"> 已取消 </i>
+          <i class="fa fa-close" aria-hidden="true"> Canceld </i>
         <% when 'good_returned' %>
-          <i class="fa fa-reply" aria-hidden="true"> 已退货 </i>
+          <i class="fa fa-reply" aria-hidden="true"> Returned </i>
         <% else %>
-          <i class="fa fa-question" aria-hidden="true"> 无状态 </i>
+          <i class="fa fa-question" aria-hidden="true"> Invalid </i>
       <% end %>
     </h5>
 
     <!-- 管理员可以取消订单 -->
     <% if current_user.admin? &&  (@order.aasm_state == 'order_placed' || @order.aasm_state == 'paid' )%>
     <div class="group pull-right">
-    <%= link_to('取消订单',order_to_cancell_admin_order_path(@order.token),:method => :put,class: "btn btn-lg btn-danger") %>
+    <%= link_to('Cancel Order',order_to_cancell_admin_order_path(@order.token),:method => :put,class: "btn btn-lg btn-danger") %>
     </div>
     <% end %>
 
@@ -133,8 +133,8 @@
     <!-- 支付方式 -->
     <div class="group pull-right">
     <% if @order.aasm_state == 'order_placed'%>
-      <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token),:method => :post, class: "btn btn-primary") %> 
-      <%= link_to("以微信支付",pay_with_wechat_order_path(@order.token),:method => :post, class: "btn btn-success") %>      
+      <%= link_to("Paypal", pay_with_alipay_order_path(@order.token),:method => :post, class: "btn btn-primary") %> 
+      <%= link_to("Wechat",pay_with_wechat_order_path(@order.token),:method => :post, class: "btn btn-success") %>      
     <% end %>
     </div>
 

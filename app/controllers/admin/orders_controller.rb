@@ -15,7 +15,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find_by_token(params[:id])
     @order.cancell_order!
     # OrderMailer.notify_admin_cancell_order(@order).deliver    
-    flash[:notice] = '该订单已被取消'  
+    flash[:notice] = 'The Order has been canceled'  
     redirect_to :back
     
   end
@@ -25,7 +25,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find_by_token(params[:id])
     @order.ship!
     # OrderMailer.notify_shipping(@order).deliver
-    flash[:notice] = '该订单已出货' 
+    flash[:notice] = 'Shipping!' 
     redirect_to :back
   end
 

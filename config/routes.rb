@@ -24,12 +24,17 @@ Rails.application.routes.draw do
         put :order_to_shipping
       end
     end
+
+    resources :anliysises do
+
+    end
     
   end
 
   resources :products do
     member do
       post :add_to_cart
+      post :checkoutnow
     end
   end
 
@@ -77,6 +82,7 @@ Rails.application.routes.draw do
   resources :feiben_displays do
     collection do
       get :standard_size10
+      get :standard_size1020
       get :standard_size20
       get :customization
     end

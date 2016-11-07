@@ -17,11 +17,13 @@ class OrdersController < ApplicationController
         product_list.quantity = cart_item.quantity
         product_list.save
       end
+      current_cart.destroy
 
       redirect_to order_path(@order.token)
     else
       render 'carts/checkout'
     end
+
   end
 
   def show
@@ -33,19 +35,19 @@ class OrdersController < ApplicationController
   def pay_with_alipay
     @order = Order.find_by_token(params[:id])
     if @order.is_paid == true
-      redirect_to payfailed_order_path,alert: "付款失败，该订单已被支付"
+      redirect_to payfailed_order_path,alert: "It's already paid!"
     else
       @order.payment_method = 'alipay'
       @order.is_paid = true
 
       # 发邮件
-      OrderMailer.notify_order_placed(@order).deliver
+      # OrderMailer.notify_order_placed(@order).deliver
       # 状态转换
       @order.make_payment!
 
 
       @order.save
-      redirect_to paysuccess_order_path,notice: "付款成功"
+      redirect_to paysuccess_order_path,notice: "Checkout success!"
     end
   end
 
@@ -53,19 +55,19 @@ class OrdersController < ApplicationController
   def pay_with_wechat
     @order = Order.find_by_token(params[:id])
     if @order.is_paid == true
-      redirect_to payfailed_order_path,alert: "付款失败，该订单已被支付"
+      redirect_to payfailed_order_path,alert: "It's already paid!"
     else
       @order = Order.find_by_token(params[:id])
       @order.payment_method = 'wechat'
       @order.is_paid = true 
 
       # 发订单确认邮件
-      OrderMailer.notify_order_placed(@order).deliver
+      # OrderMailer.notify_order_placed(@order).deliver
       # 状态转换
       @order.make_payment!
 
       @order.save 
-      redirect_to paysuccess_order_path,notice: "付款成功"
+      redirect_to paysuccess_order_path,notice: "Checkout success!"
     end
   end
 
@@ -92,24 +94,24 @@ class OrdersController < ApplicationController
     puts code
     puts '~~'
     case code
-    when 'fbd9'
+    when 'FBD9'
 
       @order.total = @order.total * 0.9
       @order.save
-    when 'fbd8'
+    when 'FBD8'
       @order.total = @order.total * 0.8
       @order.save
-    when 'fbd7'
+    when 'FBD7'
       @order.total = @order.total * 0.7
       @order.save
-    when 'fbd6'
+    when 'FBD6'
       @order.total = @order.total * 0.6
       @order.save
     else
-      return redirect_to :back , notice: "该优惠码不存在"
+      return redirect_to :back , notice: "The coupon code is not exsit!"
     end
 
-    return redirect_to :back , notice: "优惠码使用成功"
+    return redirect_to :back , notice: "The coupon works!"
     
   end
 

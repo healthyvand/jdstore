@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col-md-12">
 
-    <h2> 历史订单 </h2>
+    <h2> Historical orders </h2>
 
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>订单号</th>
-          <th>总价</th>
-          <th>付款人</th>
-          <th>收货人</th>
-          <th>收货地址</th>
-          <th>订单状态</th>
-          <th>操作</th>
+          <th>Order Number</th>
+          <th>Total Price</th>
+          <th>Buyer</th>
+          <th>Receiver</th>
+          <th>Shipping Address</th>
+          <th>Order Status</th>
+          <th>Operation</th>
         </tr>
       </thead>
       <tbody>
@@ -30,24 +30,24 @@
           <td>
             <% case order.aasm_state %>
               <% when 'order_placed' %>
-                <i class="fa fa-gavel" aria-hidden="true"> 已下订 </i>
+                <i class="fa fa-gavel" aria-hidden="true"> Ordered </i>
               <% when 'paid' %>
-                <i class="fa fa-money" aria-hidden="true"> 已付款 </i>
+                <i class="fa fa-money" aria-hidden="true"> Paid </i>
               <% when 'shipping' %>
-                <i class="fa fa-trunk" aria-hidden="true"> 出货中 </i>
+                <i class="fa fa-trunk" aria-hidden="true"> Delivering </i>
               <% when 'shipped' %>
-                <i class="fa fa-square" aria-hidden="true"> 到货 </i>
+                <i class="fa fa-square" aria-hidden="true"> Shipped </i>
               <% when 'order_cancelled' %>
-                <i class="fa fa-close" aria-hidden="true"> 已取消 </i>
+                <i class="fa fa-close" aria-hidden="true"> Canceled </i>
               <% when 'good_returned' %>
-                <i class="fa fa-reply" aria-hidden="true"> 已退货 </i>
+                <i class="fa fa-reply" aria-hidden="true"> Returned </i>
               <% else %>
-                <i class="fa fa-question" aria-hidden="true"> 无状态 </i>
+                <i class="fa fa-question" aria-hidden="true"> Invalid </i>
             <% end %>
           </td>
           <td>
           <% if order.aasm_state == 'order_placed' || order.aasm_state == 'paid'%>
-            <%= link_to('退订',account_order_apply_cancell_order_path(order.token),:method => :post,class: "btn btn-sm btn-default") %>
+            <%= link_to('Cancel',account_order_apply_cancell_order_path(order.token),:method => :post,class: "btn btn-sm btn-default") %>
             <% end %>
           </td>
 

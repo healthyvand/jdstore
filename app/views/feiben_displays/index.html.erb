@@ -2,20 +2,22 @@
   <div class="col-md-2 sidebar" >
   <!-- 左边栏 -->
     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path ) %> </li>
-      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path ) %> </li>
-      <li><%= link_to("Customization", customization_feiben_displays_path ) %> </li>
+      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path ,class: "fontbtn") %> </li>
+      <li><%= link_to("10'x20' Displays", standard_size1020_feiben_displays_path ,class: "fontbtn") %> </li>
+      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path ,class: "fontbtn") %> </li>
+      <li><%= link_to("Customization", customization_feiben_displays_path ,class: "fontbtn") %> </li>
 
     </ul>
   </div>
 
-  <div class="col-md-10">
+  <div class="col-md-9">
   <!-- 上边栏 -->
     <ul class="nav nav-pills" role="tablist">
-      <li role="presentation"><a href="#how-it-works">How it work</a></li>
-      <li role="presentation"><a href="#about-us">About Us</a></li>
-      <li role="presentation"><a href="#portfolio">Portfolio</a></li>
-      <li role="presentation"><a href="#contact-us">Contact Us</a></li>
+      <li role="presentation"><a class="fontbtn"  href="#how-it-works">How it work</a></li>
+      <li role="presentation"><a class="fontbtn"  href="#about-us">About Us</a></li>
+      <li role="presentation"><a class="fontbtn"  href="#coupon-code">Coupon</a></li>
+      <li role="presentation"><a class="fontbtn"  href="#contact-us">Contact Us</a></li>
+      <li role="presentation"><a class="fontbtn"  href="#portfolio">Portfolio</a></li>
     </ul>
     <hr>
 
@@ -33,19 +35,26 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="https://ooo.0o0.ooo/2016/11/06/581f38662c68b.png" alt="1.png" title="1.png" />
+          <%= link_to standard_size10_feiben_displays_path  do %>
+            <img src="https://ooo.0o0.ooo/2016/11/06/581f38662c68b.png" alt="1.png" title="1.png" />
+          <% end %>
+          
           <div class="carousel-caption">
             
           </div>
         </div>
         <div class="item">
-          <img src="https://ooo.0o0.ooo/2016/11/06/581f38673ba3c.png" alt="2.png" title="2.png" />
+          <%= link_to standard_size20_feiben_displays_path  do %>
+            <img src="https://ooo.0o0.ooo/2016/11/06/581f38673ba3c.png" alt="2.png" title="2.png" />
+          <% end %>
           <div class="carousel-caption">
             
           </div>
         </div>
         <div class="item">
-          <img src="https://ooo.0o0.ooo/2016/11/06/581f386245a44.png" alt="3.png" title="3.png" />
+          <a href="#coupon-code">
+            <img src="https://ooo.0o0.ooo/2016/11/06/581f386245a44.png" alt="3.png" title="3.png" />
+          </a>
           <div class="carousel-caption">
             
           </div>
@@ -64,66 +73,263 @@
   </div>
 </div>
 
-<hr>
+<!-- <hr> -->
 
-
-
-<!-- 用户引导 -->
-<div class="row" id="how-it-works">
-<img src="https://ooo.0o0.ooo/2016/11/06/581f39dc1f92b.jpg" alt="tradeshow2.jpg" title="tradeshow2.jpg" class="img-rounded"/>
-<!--   <div class="col-md-12">
-  <img src="https://ooo.0o0.ooo/2016/11/06/581f39dc1f92b.jpg" alt="tradeshow2.jpg" title="tradeshow2.jpg" class="img-rounded"/> -->
-<!--     <h1>How it work</h1>
-    <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
-  <!-- </div> -->
-
+<div class="row">
+  <br>
 </div>
 
-<hr>
+<!-- 用户引导 -->
+<div class="row cc" id="how-it-works">
 
-<!-- 关于我们 -->
-<div class="row" id="about-us">
-  <div class="jumbotron">
+
+  <br>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+
+    <!-- 媒体信息 -->
+    <div class="media">
+
+      <div class="media-body">
+        <br>
+        <br>
+        <br>
+        <h2 class="media-heading">How It Works</h2>
+        <br>
+        <p>1. Find the right product and order it. </p>
+        <p>2. Upload your Artwork and Let us make it. </p>
+        <p>3. Expect your shipment.</p>
+        
+      </div>
+    </div>
+    <!-- 媒体信息 -->
+
+
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <img src="https://ooo.0o0.ooo/2016/11/07/581fdd925866a.png" alt="how_it_works.png" title="how_it_works.png" class="img-responsive center-block img-rounded">
+  </div>
+  <!-- <div class="col-md-1"></div> -->
+  <div class="col-md-12">
+    <br>
+  </div>
+<!--   <div class="jumbotron">
     <h1>About Us</h1>
     <blockquote>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-  </div>
+  </div> -->
+
 </div>
 
-<hr>
+<!-- <hr> -->
 
-<!-- 合作伙伴 -->
-<div class="row" id="portfolio">
-  <div class="jumbotron">
-    <h1>Portfolio</h1>
+<!-- 关于我们 -->
+<div class="row" id="about-us">
+  <br>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <img src="https://ooo.0o0.ooo/2016/11/07/581fdceaeda24.jpg" alt="About us.jpg" title="About us.jpg" class="img-responsive center-block img-rounded">
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+
+    <!-- 媒体信息 -->
+    <div class="media">
+
+      <div class="media-body">
+        <br>
+        <br>
+        <h2 class="media-heading">About Us</h2>
+        <br>
+        <p>Awesome Display s is a full service, turn-key, exhibit house. 
+        </p> <p>All our employees are up to date on not only what is happening within each department of our company but are cross trained to pick up slack no matter the situation. We stay on top of our game.</p>
+        
+      </div>
+    </div>
+    <!-- 媒体信息 -->
+
+
+
+
+  </div>
+  <!-- <div class="col-md-1"></div> -->
+  <div class="col-md-12">
+    <br>
+  </div>
+<!--   <div class="jumbotron">
+    <h1>About Us</h1>
     <blockquote>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-  </div>
+  </div> -->
 </div>
 
 
-<hr>
+
+<!-- 促销 -->
+<div class="row cc" id="coupon-code">
+  <br>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    
+    <!-- 媒体信息 -->
+    <div class="media">
+
+      <div class="media-body">
+        <br>
+        
+        <h2 class="media-heading">Coupon</h2>
+        <br>
+        <p>The November 11th is coming. Happy veterans day. As appreciation for your shopping, we would like to offer you this coupon to receive 10% on all orders. Please input the following code when you Checkout</p>
+        <!-- <p>Please input the following code when you Checkout.</p> -->
+
+        <p class="lead" id="coupon"><strong><em>'FBD9'</em></strong></p>
+
+        
+      </div>
+    </div>
+    <!-- 媒体信息 -->
+
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <img src="https://ooo.0o0.ooo/2016/11/07/581fdceb30bb2.png" alt="Coupon.png" title="Coupon.png" class="img-responsive center-block img-rounded">
+  </div>
+  
+  <div class="col-md-12">
+    <br>
+  </div>
+<!--   <div class="jumbotron">
+    <h1>About Us</h1>
+    <blockquote>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  </div> -->
+</div>
+
+
+<!-- <hr> -->
+
+
+
+
+
 
 
 <!-- 联系我们 -->
 <div class="row" id="contact-us">
-  <div class="jumbotron">
-    <h1>Contact Us</h1>
+  <br>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <img src="https://ooo.0o0.ooo/2016/11/07/581fdceb5d057.jpeg" alt="call us.jpeg" title="call us.jpeg" class="img-responsive center-block img-rounded">  
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+
+    <!-- 媒体信息 -->
+    <div class="media">
+
+      <div class="media-body">
+        <br>
+        <br>
+        <h2 class="media-heading">Contact Us</h2>
+        <br>
+        <p>1382 Hallman Ave, Suite A </p>
+        <p>Tustin, California 92781 USA</p>
+        <p>Toll Free: +1-888-760-2222</p>
+        <p>Email: info@awesomedispaly.com</p>
+        
+      </div>
+    </div>
+    <!-- 媒体信息 -->
+
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-12">
+    <br>
+  </div>
+<!--   <div class="jumbotron">
+    <h1>About Us</h1>
     <blockquote>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  </div> -->
+</div>
+
+<!-- <hr> -->
+
+<div class="row">
+  <!-- <div class="col-md-12"> -->
+    <img src="https://ooo.0o0.ooo/2016/11/07/581fcef87446b.jpg" alt="home-banner-01.jpg" title="home-banner-01.jpg" class="img-responsive center-block">  
+  <!-- </div> -->
+
+
+</div>
+
+<div class="row">
+  <br>
+</div>
+
+<!-- 合作伙伴 -->
+<div class="row" id="portfolio">
+
+<div class="col-md-12">
+
+  <div class="jumbotron">
+    <h1>Portfolio</h1>
+    <blockquote>
+      <p>We are pround of our work.</p>
+      <!-- <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
+    </blockquote>
+  <div class="row">
+    
+  
+
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e1b552.jpg" alt="1.jpg" title="1.jpg" class="img-responsive center-block"/>
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e500fd.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e50c00.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e63fcf.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e699be.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5e6d16b.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5eadd33.jpg" class="img-responsive center-block">
+    </div>
+    <div class="col-md-3 imgpd">
+      <img src="https://ooo.0o0.ooo/2016/11/07/581fde5ebbc5c.jpg" class="img-responsive center-block">
+    </div>
   </div>
+
+<!--     <div class="col-md-12">
+    <br>
+    </div>
+
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+  </div>
+
+</div>
 </div>
 
 
-
-
+<!-- <hr> -->

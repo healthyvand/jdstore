@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
     if !@cartItem.num_increase?
     #   flash[:notice] = "increase"
     # else
-      flash[:notice] = "不能超过库存"
+      flash[:notice] = "No more available"
     end
     redirect_to carts_path
   end
@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
     if !@cartItem.num_decrease?
     #   flash[:notice] = "decrease"
     # else
-      flash[:notice] = "数量不能低于1"
+      flash[:notice] = "Quantity always more than 1"
     end
     # @cartItem.num_decrease
     redirect_to carts_path    
@@ -27,7 +27,7 @@ class CartItemsController < ApplicationController
     @cartItem = CartItem.find(params[:id])
     @cartItem.destroy
     # @product.destroy
-    flash[:notice] = "删除成功"
+    flash[:notice] = "Delete Success"
     redirect_to carts_path
   end
 end

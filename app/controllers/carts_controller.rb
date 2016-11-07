@@ -6,7 +6,7 @@ class CartsController < ApplicationController
     current_cart.cart_items.each do |item|
       item.destroy
     end
-    flash[:notice] = "购物车已清空"
+    flash[:notice] = "Cart is empty"
     # 重定向回来
     redirect_to :back
   end
@@ -14,7 +14,6 @@ class CartsController < ApplicationController
   def checkout
     @order = Order.new
   end
-
 
 
 

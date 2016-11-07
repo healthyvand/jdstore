@@ -85,23 +85,49 @@ class ProductsController < ApplicationController
       p_already = current_cart.cart_items.where(product_id: @product.id)
       # 如果有，直接在原产品上数量+1
       if p_already.present?
-        flash[:notice] = "添加购物车成功！" 
+        flash[:notice] = "Item added!" 
         puts '~~ already have this product ~~'
         # 注意where查出来的是个collection
         if !p_already.first.num_increase?
-          flash[:notice] = "不能超过库存"
+          flash[:notice] = "No more available!"
         end
 
       # 如果都没有就添加一项到产品里面去
       else
         puts '~~ have no this product ~~ '  
         current_cart.add_product_to_cart(@product)
-        flash[:notice] = "添加购物车成功！" 
+        flash[:notice] = "Item added!" 
       end    
       redirect_to :back
     end
+  end
 
+  # 使用立即结账
+  def checkoutnow
+    @product = Product.find(params[:id])
+    # 首先判断是否产品库存为0，为0则直接重定向回去
+    if @product.quantity == 0
+      redirect_to :back
+    else
+      # 看是否购物车中添加过同类商品
+      p_already = current_cart.cart_items.where(product_id: @product.id)
+      # 如果有，直接在原产品上数量+1
+      if p_already.present?
+        flash[:notice] = "Item added!" 
+        puts '~~ already have this product ~~'
+        # 注意where查出来的是个collection
+        if !p_already.first.num_increase?
+          flash[:notice] = "No more available!"
+        end
 
+      # 如果都没有就添加一项到产品里面去
+      else
+        puts '~~ have no this product ~~ '  
+        current_cart.add_product_to_cart(@product)
+        flash[:notice] = "Item added!！" 
+      end    
+      redirect_to checkout_carts_path
+    end
   end
 
 

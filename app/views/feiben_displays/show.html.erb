@@ -2,9 +2,10 @@
   <div class="col-md-2 sidebar" >
   <!-- 左边栏 -->
     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path ) %> </li>
-      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path ) %> </li>
-      <li><%= link_to("Customization", customization_feiben_displays_path ) %> </li>
+      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path,class: "fontbtn" ) %> </li>
+      <li><%= link_to("10'x20' Displays", standard_size1020_feiben_displays_path,class: "fontbtn" ) %> </li>
+      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path,class: "fontbtn" ) %> </li>
+      <li><%= link_to("Customization", customization_feiben_displays_path,class: "fontbtn" ) %> </li>
 
     </ul>
   </div>
@@ -120,15 +121,16 @@
         <% end %>
 
         <!-- 价格 -->
-        <h1>$ <%= @product.price %>.000</h1>
+        <h1>$ <%= @product.price %></h1>
         <br>
 
         <!-- pdf下载 -->
         <div class="row">
           <% if @product.attachpdf.present? %>
-          <a href="<%= @product.attachpdf_url %>" target="_blank" class="btn btn-danger btn-lg col-md-8">预览</a>
+          <a href="<%= @product.attachpdf_url %>" target="_blank" class="btn btn-primary btn-lg col-md-9">PDF Download</a>
           <% else %>
-          <p>无附件</p>
+          <div class="btn btn-primary btn-lg col-md-9">No Attachment</div>
+          <!-- <p>No Attachment</p> -->
           <% end %>
 
 
@@ -145,11 +147,14 @@
         <!-- 加入购物车 -->
         <div class="row">
           <% if @product.quantity == 0 %>
-          <%= link_to('加入购物车',add_to_cart_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-8",role: "button", disabled: "disabled") %>
+          <%= link_to('Add To Cart',add_to_cart_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-4",role: "button", disabled: "disabled") %>
+          <%= link_to('Buy Now',add_to_cart_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-4",role: "button", disabled: "disabled") %>
             
           <% else %>
 
-          <%= link_to('加入购物车',add_to_cart_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-8",role:"button") %>
+          <%= link_to('Add To Cart',add_to_cart_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-4",role:"button") %>
+          <div class="col-md-1"></div>
+          <%= link_to('Buy Now',checkoutnow_product_path(@product), :method => :post,class: "btn btn-danger btn-lg col-md-4",role:"button") %>
           <% end %>
         </div>
         <!-- facebook点赞 -->
@@ -182,11 +187,7 @@
             <% end %>
             
 
-            <!-- facebook link -->
-            <br>
 
-            <div class="fb-like" data-href="https://shrouded-gorge-48699.herokuapp.com/" data-width="10" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
-            <!-- facebook link -->
 
 
           </div>

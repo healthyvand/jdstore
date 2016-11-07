@@ -21,7 +21,7 @@ class Admin::ProductsController < ApplicationController
         end
       end
 
-      redirect_to admin_products_path, notice: "新建成功"
+      redirect_to admin_products_path, notice: "Build Success!"
     else
       render :new
     end
@@ -52,11 +52,11 @@ class Admin::ProductsController < ApplicationController
       end
 
       @product.update(product_params)
-      redirect_to admin_products_path, notice: "更新成功"
+      redirect_to admin_products_path, notice: "Update Success!"
 
     
     elsif @product.update(product_params)
-      redirect_to admin_products_path,  notice: "更新成功"
+      redirect_to admin_products_path,  notice: "Update Success!"
     else
       render :edit
     end

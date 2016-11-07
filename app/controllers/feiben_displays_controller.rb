@@ -19,6 +19,10 @@ class FeibenDisplaysController < ApplicationController
     @products = Product.where(feet: "20'x20'")
   end
 
+  def standard_size1020
+    @products = Product.where(feet: "10'x20'")
+  end
+
   def customization
     @products = Product.where(feet: "customization")  
   end

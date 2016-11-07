@@ -1,0 +1,89 @@
+  <h4>Data Analiysises</h4>
+  <hr>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="ec1" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('ec1'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'Sales'
+        },
+        tooltip: {},
+        legend: {
+            data:['size']
+        },
+        xAxis: {
+            data: ["10'x10' Displays","20'x20' Displays","Customization"]
+        },
+        yAxis: {},
+        series: [{
+            name: 'sells',
+            type: 'bar',
+            data: [47, 26, 6]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<hr>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<h5>Customs Sources</h5>
+<div id="ec2" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+var myChart2 = echarts.init(document.getElementById('ec2'));
+option = {
+    backgroundColor: '#ffffff',
+    visualMap: {
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },
+    series : [
+        {
+            name: 'Sources',
+            type: 'pie',
+            radius: '55%',
+            data:[
+                {value:235, name:'Vidio AD'},
+                {value:274, name:'Union AD'},
+                {value:310, name:'E-mails'},
+                {value:335, name:'Shopping onsite'},
+                {value:400, name:'Search engine'}
+            ],
+            roseType: 'angle',
+            label: {
+                normal: {
+                    textStyle: {
+                        color: 'rgba(0, 0, 0, 0.3)'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: 'rgba(0, 0, 0, 0.3)'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart2.setOption(option);
+</script>

@@ -11,7 +11,7 @@ class Account::OrdersController < ApplicationController
     @order = Order.find_by_token(params[:order_id])
     # 发请求取消订单邮件
     # OrderMailer.notify_cancell_order(@order).deliver
-    flash[:notice] = '您的申请已经提交'
+    flash[:notice] = 'Your application has been proceeded!'
     redirect_to :back
   end
 

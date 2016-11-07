@@ -26,15 +26,15 @@
         <h5><%= product.title %></h5> 
           <h3>￥<%= product.price %>.00</h3>
           <p><%= product.description %></p>
-          <%= link_to('编辑',edit_admin_product_path(product),class: "btn btn-primary",role: "button") %> 
+          <%= link_to('Edit',edit_admin_product_path(product),class: "btn btn-primary",role: "button") %> 
           <% if product.is_hidden %>
-          <%= link_to("上架", publish_admin_product_path(product), :method => :put,class: "btn btn-warning",role: "button") %>
+          <%= link_to("Up", publish_admin_product_path(product), :method => :put,class: "btn btn-warning",role: "button") %>
           
           <% else %>
-          <%= link_to("下架", private_admin_product_path(product), :method => :put,class: "btn btn-warning",role: "button") %>
+          <%= link_to("Down", private_admin_product_path(product), :method => :put,class: "btn btn-warning",role: "button") %>
           <% end %>
 
-          <%= link_to("删除", admin_product_path(product), :method => :delete, :data => { :confirm => "确定删除?" },class: "btn btn-danger",role: "button") %>
+          <%= link_to("Delete", admin_product_path(product), :method => :delete, :data => { :confirm => "确定删除?" },class: "btn btn-danger",role: "button") %>
         </div>
       </div>
     </div>

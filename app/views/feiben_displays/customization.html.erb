@@ -2,9 +2,10 @@
   <div class="col-md-2 sidebar" >
   <!-- 左边栏 -->
     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path ) %> </li>
-      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path ) %> </li>
-      <li class="active"><%= link_to("Customization", customization_feiben_displays_path ) %> </li>
+      <li><%= link_to("10'x10' Displays", standard_size10_feiben_displays_path ,class: "fontbtn")  %> </li>
+      <li><%= link_to("10'x20' Displays", standard_size1020_feiben_displays_path ,class: "fontbtn")  %> </li>
+      <li><%= link_to("20'x20' Displays", standard_size20_feiben_displays_path ,class: "fontbtn")  %> </li>
+      <li class="active"><%= link_to("Customization", customization_feiben_displays_path ,class: "fontbtn")  %> </li>
 
     </ul>
   </div>
@@ -16,8 +17,12 @@
   <div class="col-md-10">
 
   <!-- 产品栏 -->
-    <h4>商品列表</h4>
-    <hr>
+    <ol class="breadcrumb">
+
+      <li class="active">Customization</li>
+    </ol>
+
+    <!-- <hr> -->
 
     <%= render 'thumbnail' %>
 
