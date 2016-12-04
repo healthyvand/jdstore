@@ -4,8 +4,8 @@
 
 # 架构
 
-使用ROR进行开发，从jdstore项目衍生而来，调整成为适合加州特色的网销特点的站点
+使用ROR进行开发，从xdite的jdstore项目衍生而来，调整成为适合加州特色的网销特点的站点
 
 # 站点
 
-![WechatIMG43.jpeg](https://ooo.0o0.ooo/2016/12/04/58443ad9d93ee.jpeg)
+![FireShot Capture 2 - FeiBen Display - https___shrouded-gorge-48699.herokuapp.com_.png](https://ooo.0o0.ooo/2016/12/04/58443a170b4de.png)
