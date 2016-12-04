@@ -1,24 +1,11 @@
-# README
+# 介绍
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+这是一个小型商城系统，用于外贸售卖大型展会展具。
 
-Things you may want to cover:
+# 架构
 
-* Ruby version
+使用ROR进行开发，从jdstore项目衍生而来，调整成为适合加州特色的网销特点的站点
 
-* System dependencies
+# 站点
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![WechatIMG43.jpeg](https://ooo.0o0.ooo/2016/12/04/58443ad9d93ee.jpeg)
